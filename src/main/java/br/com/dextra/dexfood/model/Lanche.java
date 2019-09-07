@@ -1,55 +1,32 @@
 package br.com.dextra.dexfood.model;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+/**
+ * 
+ * @author bruno
+ *
+ */
+public abstract class Lanche {
 
-@Entity
-@Table(name = "lanche")
-public class Lanche {
+	protected List<Ingrediente> ingredientes;
+	
+	public List<Ingrediente> getIngredientes() {
+		return ingredientes;
+	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String descricao;
-
-	@OneToMany
-	private Set<Ingrediente> ingredientes = new HashSet<Ingrediente>();
-
-	public Lanche() {
+	public double getPreco() {
+		double preco = 0;
+		for (Ingrediente ingrediente : ingredientes) {
+			preco += ingrediente.getPreco();
+		}
+		return preco;
 	}
 	
-	public Long getId() {
-		return id;
+	public double montarLanche(Lanche lanche, List<Ingrediente> adicionais) {
+		for (Ingrediente ingrediente : adicionais) {
+			lanche.getIngredientes().add(ingrediente);
+		}
+		return lanche.getPreco();
 	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return descricao;
-	}
-
-	public void setNome(String nome) {
-		this.descricao = nome;
-	}
-
-	public void setIngredientes(Set<Ingrediente> ingredientes) {
-		this.ingredientes = ingredientes;
-	}
-
-	public Set<Ingrediente> getIngredientes() {
-		return ingredientes;
-
-	}
-
 }

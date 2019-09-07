@@ -1,56 +1,23 @@
 package br.com.dextra.dexfood.model;
 
-import java.math.BigDecimal;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * 
  * @author bruno
  *
  */
+public enum Ingrediente {
 
-@Entity
-@Table(name = "ingrediente")
-public class Ingrediente {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
+	ALFACE("Alface", 0.40), BACON("Bacon", 2.00), HAMBURGER_CARNE("Hambúrguer de Carne", 3.00), OVO("Ovo",
+			0.80), QUEIJO("Hambúrguer de Carne", 3.00);
+
 	private String descricao;
-	private Long quantidade;
-	private BigDecimal preco;
-	
-	public Ingrediente() {
-		
-	}
-		
-	public Ingrediente(String descricao, Long quantidade, BigDecimal preco){
+	private double preco;
+
+	Ingrediente(String descricao, double preco) {
 		this.descricao = descricao;
 		this.preco = preco;
-		this.quantidade = quantidade;
-	}
-	
-	public Ingrediente(Long id, String descricao, Long quantidade, BigDecimal preco){
-		this.descricao = descricao;
-		this.preco = preco;
-		this.quantidade = quantidade;
-		this.id = id;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public String getDescricao() {
 		return descricao;
 	}
@@ -58,25 +25,12 @@ public class Ingrediente {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	public BigDecimal getValorTotal(){
-		return getPreco().multiply(new BigDecimal(quantidade));
-	}
-	
-	public BigDecimal getPreco() {
+
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-
-	public Long getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(Long quantidade) {
-		this.quantidade = quantidade;
-	}
-	
 }
