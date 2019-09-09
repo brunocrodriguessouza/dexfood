@@ -48,13 +48,14 @@ public class PedidoController {
 		return lanches;
 	}
 
-	@GetMapping("/lanches/{tipo}")
-	public ResponseEntity<Lanche> calcularLanche(@PathVariable(value = "tipo") Lanche tipo) {
-		Lanche lanche = pedidoService.montarLanche(tipo, null);
-		return ResponseEntity.ok(lanche);
-	}
+//	Falta Implementar o calcular lanche
+	//	@GetMapping("/lanches/{tipo}")
+	//	public ResponseEntity<Lanche> calcularLanche(@PathVariable(value = "tipo") Lanche tipo) {
+	//		Lanche lanche = pedidoService.montarLanche(tipo, null);
+	//		return ResponseEntity.ok(lanche);
+	//	}
 	//
-	// //Criar pedido dos lanches
+//	Falta implementar o Criar pedido dos lanches
 	// @PutMapping("/pedido")
 	// public ResponseEntity<Pedido> criar(@Valid @RequestBody Pedido pedido) {
 	// Pedido newPedido = pedidoService.fazerPedido(pedido);
