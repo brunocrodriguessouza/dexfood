@@ -1,5 +1,7 @@
 package br.com.dextra.dexfood.model;
 
-public class Promocao {
+import java.util.List;
 
+public interface Promocao {
+	double aplicarRegra(List<Ingrediente> ingredientes, double valor);
 }
