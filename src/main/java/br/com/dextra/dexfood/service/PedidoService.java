@@ -13,7 +13,7 @@ import br.com.dextra.dexfood.model.Promocao;
 @Service
 public class PedidoService {
 	
-	public Lanche montarLanche(Lanche tipo, List<Ingrediente> adicionais) {
+	public Lanche adicionarIngredientes(Lanche tipo, List<Ingrediente> adicionais) {
 		if(adicionais != null) {
 			for (Ingrediente ingrediente : adicionais) {
 				tipo.getIngredientes().add(ingrediente);
@@ -24,10 +24,12 @@ public class PedidoService {
 	}
 	
 	public Lanches montarLanche(Lanches tipo) {
+		// TODO Auto-generated method stub
 		return tipo;
 	}
 	
 	public double aplicarPromocao(Lanche lanche, Promocao promocao) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 

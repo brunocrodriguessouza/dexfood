@@ -1,5 +1,7 @@
 package br.com.dextra.dexfood.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * 
  * @author bruno
@@ -7,11 +9,16 @@ package br.com.dextra.dexfood.model;
  */
 public enum Ingrediente {
 
+	@JsonProperty("Alface")
 	ALFACE("Alface", 0.40), 
+	@JsonProperty("Bacon")
 	BACON("Bacon", 2.00), 
+	@JsonProperty("Hambúrguer de Carne")
 	HAMBURGER_CARNE("Hambúrguer de Carne", 3.00), 
+	@JsonProperty("Ovo")
 	OVO("Ovo",0.80), 
-	QUEIJO("Hambúrguer de Carne", 3.00);
+	@JsonProperty("Queijo")
+	QUEIJO("Queijo", 1.50);
 
 	private String descricao;
 	private double preco;
