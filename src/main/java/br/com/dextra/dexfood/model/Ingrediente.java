@@ -1,8 +1,5 @@
 package br.com.dextra.dexfood.model;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**

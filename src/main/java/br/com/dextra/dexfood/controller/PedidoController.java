@@ -29,7 +29,7 @@ public class PedidoController {
 	@Autowired
 	private PedidoService pedidoService;
 	
-	// Repository é apenas uma classe que simula o banco
+	// é apenas uma classe que simula um Repository
 	@Autowired
 	PedidoRepository pedidoRepository;
 

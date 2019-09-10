@@ -2,6 +2,11 @@ package br.com.dextra.dexfood.model;
 
 import java.util.List;
 
+/**
+ * 
+ * @author bruno
+ *
+ */
 public enum Promocoes implements Promocao {
 	  LIGHT(true) {
 	    @Override

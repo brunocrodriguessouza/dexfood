@@ -11,7 +11,6 @@ import br.com.dextra.dexfood.model.Pedido;
 
 @Service
 public class PedidoService {
-	
 
 	public Lanche montarLanche(Lanche lanche, List<Ingrediente> adicionais) {
 		if (adicionais != null) {
@@ -23,13 +22,12 @@ public class PedidoService {
 	}
 
 	public Lanche fazerPedido(Pedido pedido) {
-		if(pedido.getAdicionais() != null) {
+		if (pedido.getAdicionais() != null) {
 			for (Ingrediente ingrediente : pedido.getAdicionais()) {
 				pedido.getLanche().getIngredientes().add(ingrediente);
 			}
 		}
-		
+
 		return pedido.getLanche();
 	}
-
 }
