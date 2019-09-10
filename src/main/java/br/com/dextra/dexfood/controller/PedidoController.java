@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.dextra.dexfood.model.Ingrediente;
 import br.com.dextra.dexfood.model.Lanche;
 import br.com.dextra.dexfood.model.Pedido;
+import br.com.dextra.dexfood.repository.PedidoRepository;
 import br.com.dextra.dexfood.service.PedidoService;
 
 @RestController
@@ -27,15 +28,14 @@ public class PedidoController {
 
 	@Autowired
 	private PedidoService pedidoService;
+	
+	// Repository é apenas uma classe que simula o banco
+	@Autowired
+	PedidoRepository pedidoRepository;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<Pedido> getPedidos() {
-		List<Ingrediente> adicionais = new ArrayList<Ingrediente>();
-		adicionais.add(Ingrediente.BACON);
-		Pedido pedido = new Pedido(
-				new Lanche("X-Bacon", Ingrediente.BACON, Ingrediente.HAMBURGER_CARNE, Ingrediente.QUEIJO), adicionais);
-		List<Pedido> pedidos = new ArrayList<Pedido>();
-		pedidos.add(pedido);
+	public ResponseEntity<List<Pedido>> getPedidos() {
+		List<Pedido> pedido = pedidoRepository.findAll();
 
 		return ResponseEntity.ok(pedido);
 	}
@@ -44,6 +44,10 @@ public class PedidoController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Lanche> fazerPedido(@Valid @RequestBody Pedido pedido, HttpServletResponse response) {
 		Lanche lancheMontado = pedidoService.fazerPedido(pedido);
+		
+		pedido.getAdicionais().removeAll(pedido.getAdicionais());
+		pedidoRepository.save(pedido);
+		
 		return ResponseEntity.ok(lancheMontado);
 	}
 }
