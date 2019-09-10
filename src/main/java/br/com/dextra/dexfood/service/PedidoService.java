@@ -6,36 +6,27 @@ import org.springframework.stereotype.Service;
 
 import br.com.dextra.dexfood.model.Ingrediente;
 import br.com.dextra.dexfood.model.Lanche;
-import br.com.dextra.dexfood.model.Lanches;
 import br.com.dextra.dexfood.model.Pedido;
-import br.com.dextra.dexfood.model.Promocao;
 
 @Service
 public class PedidoService {
-	
-	public Lanche adicionarIngredientes(Lanche tipo, List<Ingrediente> adicionais) {
-		if(adicionais != null) {
+
+	public Lanche montarLanche(Lanche lanche, List<Ingrediente> adicionais) {
+		if (adicionais != null) {
 			for (Ingrediente ingrediente : adicionais) {
-				tipo.getIngredientes().add(ingrediente);
+				lanche.getIngredientes().add(ingrediente);
 			}
 		}
-
-		return tipo;
-	}
-	
-	public Lanches montarLanche(Lanches tipo) {
-		// TODO Auto-generated method stub
-		return tipo;
-	}
-	
-	public double aplicarPromocao(Lanche lanche, Promocao promocao) {
-		// TODO Auto-generated method stub
-		return 0;
+		return lanche;
 	}
 
-	public Pedido fazerPedido(Pedido pedido) {
-		// TODO Auto-generated method stub
-		return null;
+	public Lanche fazerPedido(Pedido pedido) {
+		if(pedido.getAdicionais() != null) {
+			for (Ingrediente ingrediente : pedido.getAdicionais()) {
+				pedido.getLanche().getIngredientes().add(ingrediente);
+			}
+		}
+		return pedido.getLanche();
 	}
 
 }

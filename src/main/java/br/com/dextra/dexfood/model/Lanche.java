@@ -15,6 +15,10 @@ public class Lanche {
 	  public String getNomeLanche() {
 		  return nomeLanche;
 	  }
+	  
+	  public Lanche() {
+		  
+	  }
 
 	  public Lanche(String nomeLanche, Ingrediente... ingredientes) {
 	    for (Ingrediente ingrediente : ingredientes) {

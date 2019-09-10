@@ -3,6 +3,6 @@ package br.com.dextra.dexfood.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class IngredienteService {
+public class LanchesService {
 
 }
