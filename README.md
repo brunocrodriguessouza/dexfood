@@ -3,11 +3,14 @@ Dexfood - Software para controle de vendas de lanche usando java/Spring backend 
 
 [![Build Status](https://travis-ci.org/brunocrodriguessouza/dexfood.svg?branch=master)](https://travis-ci.org/brunocrodriguessouza/dexfood)
 
-GET http://localhost:8080/ingredientes
-GET http://localhost:8080/lanches
-GET http://localhost:8080/pedidos
+```
+GET http://localhost:8080/ingredientes <br />
 
-POST http://localhost:8080/pedidos
+GET http://localhost:8080/lanches <br />
+
+GET http://localhost:8080/pedidos <br />
+
+POST http://localhost:8080/pedidos <br />
 {
     "lanche": {
         "ingredientes": [
@@ -25,3 +28,4 @@ POST http://localhost:8080/pedidos
         "Hambúrguer de Carne"
     ]
 }
+```
